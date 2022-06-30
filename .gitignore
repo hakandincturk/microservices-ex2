@@ -2,3 +2,9 @@
 /order-service/node_modules
 /product-service/node_modules
 /node_modules
+
+/auth-service/.env
+/order-service/.env
+/product-service/.env
+
+

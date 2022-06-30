@@ -9,6 +9,7 @@ const isAuthenticated = require('../isAuthenticated');
 
 const app = express();
 const PORT = process.env.PORT_ONE || 8080;
+const RABBIT_MQ = process.env.RABBITMQ;
 
 var channel, connection, order;
 
@@ -22,7 +23,7 @@ mongoose.connect('mongodb://localhost/micro-ecom-product-service', {
 app.use(express.json())
 
 async function connect(params) {
-  const amqpServer = "amqps://nztaiger:Lun5OT9tHUlr2ZizcqsiTN_0bJ06qLgR@cow.rmq2.cloudamqp.com/nztaiger";
+  const amqpServer = RABBIT_MQ;
 
   connection = await amqp.connect(amqpServer);
   channel = await connection.createChannel();
